@@ -1,0 +1,154 @@
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.http/token": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "token": {
+                    "name": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.http/token"
+                }
+            }
+        },
+        "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.products/token": {
+            "type": "String",
+            "defaultValue": "",
+            "metadata": {
+                "token": {
+                    "name": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.products/token"
+                }
+            }
+        },
+        "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.orders/token": {
+            "type": "String",
+            "defaultValue": "",
+            "metadata": {
+                "token": {
+                    "name": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.orders/token"
+                }
+            }
+        },
+        "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.httppost/token": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "token": {
+                    "name": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.httppost/token"
+                }
+            }
+        },
+        "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.logic.json/token": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "token": {
+                    "name": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.logic.json/token"
+                }
+            }
+        }
+    },
+    "triggers": {
+        "adtvdemowus.logic.fulfilment.httppost": {
+            "type": "ApiApp",
+            "inputs": {
+                "apiVersion": "2015-01-14",
+                "host": {
+                    "id": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.httppost",
+                    "gateway": "https://adtvdemo-wus-rgGUID.azurewebsites.net"
+                },
+                "operation": "Trigger",
+                "parameters": {
+                    "triggerId": "@workflow().name",
+                    "parameters": {
+                        "callbackUrl": "@accessKeys('default').primary.secretRunUri",
+                        "inputs": {
+                            "HttpMethod": "Post"
+                        }
+                    }
+                },
+                "authentication": {
+                    "type": "Raw",
+                    "scheme": "Zumo",
+                    "parameter": "@parameters('/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemowus.logic.fulfilment.httppost/token')"
+                }
+            },
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "conditions": [
+                {
+                    "expression": "@bool('false')"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "adtvdemo.wus.api.products": {
+            "type": "ApiApp",
+            "inputs": {
+                "apiVersion": "2015-01-14",
+                "host": {
+                    "id": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.products",
+                    "gateway": "https://adtvdemo-wus-rgGUID.azurewebsites.net"
+                },
+                "operation": "Product_ValidateProductsByProductstovalidate",
+                "parameters": {
+                    "productsToValidate": "@parse(triggers().outputs.body.Content).ProductDetails"
+                },
+                "authentication": {
+                    "type": "Raw",
+                    "scheme": "Zumo",
+                    "parameter": "@parameters('/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.products/token')"
+                }
+            },
+            "conditions": []
+        },
+        "adtvdemo.wus.api.orders": {
+            "type": "ApiApp",
+            "inputs": {
+                "apiVersion": "2015-01-14",
+                "host": {
+                    "id": "/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.orders",
+                    "gateway": "https://adtvdemo-wus-rgGUID.azurewebsites.net"
+                },
+                "operation": "Order_SubmitOrderByOrder",
+                "parameters": {
+                    "order": {
+                        "OrderID": "@parse(triggers().outputs.body.Content).OrderID",
+                        "DispatchID": "@{triggers().outputs.body.RequestId}",
+                        "ProductDetails": "@parse(triggers().outputs.body.Content).ProductDetails"
+                    }
+                },
+                "authentication": {
+                    "type": "Raw",
+                    "scheme": "Zumo",
+                    "parameter": "@parameters('/subscriptions/GUID/resourcegroups/adtvdemo.wus.rg/providers/Microsoft.AppService/apiapps/adtvdemo.wus.api.orders/token')"
+                }
+            },
+            "conditions": [
+                {
+                    "dependsOn": "adtvdemo.wus.api.products"
+                }
+            ]
+        },
+        "adtvdemo.wus.webapi.logistics.http": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://adtvdemowus-webapi-logistics.azurewebsites.net/api/Shipping/DispatchOrder",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "{'DispatchId':@{triggers().outputs.body.RequestId},'OrderId':@parse(triggers().outputs.body.Content).OrderID,'DeliverName':@string(parse(triggers().outputs.body.Content).DeliverName),'DeliverAddress':@string(parse(triggers().outputs.body.Content).DeliverName)}"
+            },
+            "conditions": [
+                {
+                    "dependsOn": "adtvdemo.wus.api.orders"
+                }
+            ]
+        }
+    },
+    "outputs": {}
+}

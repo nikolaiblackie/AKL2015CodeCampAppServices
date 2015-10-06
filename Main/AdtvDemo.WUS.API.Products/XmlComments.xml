@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdtvDemo.WUS.API.Products</name>
+    </assembly>
+    <members>
+        <member name="T:AdtvDemo.WUS.API.Products.Controllers.ProductController">
+            <summary>
+            Products API for ordering
+            </summary>
+        </member>
+        <member name="M:AdtvDemo.WUS.API.Products.Controllers.ProductController.GetProducts">
+            <summary>
+            Gets all Products available
+            </summary>
+            <returns>Current List</returns>
+        </member>
+        <member name="M:AdtvDemo.WUS.API.Products.Controllers.ProductController.Get(System.Int32)">
+            <summary>
+            Gets Product by id
+            </summary>
+            <param name="id">id of product</param>
+            <response code="200">If product if found</response>
+            <response code="404">If product not found</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="T:AdtvDemo.WUS.API.Products.Models.ProductDTO">
+            <summary>
+            Product
+            </summary>
+        </member>
+    </members>
+</doc>
