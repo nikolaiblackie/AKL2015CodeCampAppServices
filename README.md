@@ -34,6 +34,12 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 * $(build.stagingDirectory)\**\AdtvDemo.WUS.API.Products.zip
 
 # Resources
+Where to find more information on Azure App Services (API Apps, Logic Apps), TFS 2015 Builds, Swagger
+
+## API Apps
+
+* API Apps Documentation : https://azure.microsoft.com/en-in/documentation/articles/app-service-api-apps-why-best-platform/
+
 
 ## Swagger
 
@@ -42,9 +48,12 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 * Swashbuckle Customization: https://azure.microsoft.com/en-us/documentation/articles/app-service-api-dotnet-swashbuckle-customize/
 * Swagger & ASP NET WebAPI: http://www.wmpratt.com/swagger-and-asp-net-web-api-part-1/
 
+## TFS 2015 Builds
+* Team Foundation Build 2015: https://msdn.microsoft.com/Library/vs/alm/Build/overview
+* Visual Studio Online DevOps Tasks: https://github.com/Microsoft/vso-agent-tasks/blob/master/README.md 
 
 ## Logic App
-Where to find more information on Azure Logic Apps
+
 * Logic App EAI Tutorial : https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/
 * Author Logic App definitions : https://azure.microsoft.com/en-gb/documentation/articles/app-service-logic-author-definitions/
 * Logic App Workflow Definition Language : https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx
