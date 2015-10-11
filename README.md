@@ -25,3 +25,9 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 * Download swagger 
 * API Host URL + /swagger/docs/v1 – Swagger DOC
 
+## TFS 2015 Visual Studio Builds 
+### MSBuild Arguments to support web deployment
+* /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.stagingDirectory)"
+### Deploy automatically to slots or live - Web Deploy Package (based on MSBuild Arguments)
+* $(build.stagingDirectory)\**\AdtvDemo.WUS.WebAPI.Logistics.zip
+* $(build.stagingDirectory)\**\AdtvDemo.WUS.API.Products.zip
