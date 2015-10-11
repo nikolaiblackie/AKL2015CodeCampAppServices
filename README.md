@@ -3,6 +3,9 @@
 Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Manage API’s in Microsoft Azure
 
 ## Slides
+All slides from presentation
+
+https://github.com/nikolaiblackie/AKL2015CodeCampAppServices/blob/master/Main/Code%20Camp%20AKL%202015%20-%20DEV1%20Microsoft%20API%20Approaches%20101.pdf
 
 ## Solution
 * AdtvDemo.WUS.API.Orders
