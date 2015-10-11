@@ -37,7 +37,7 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 
 ## Logic App
 Where to find more information on Azure Logic Apps
-* Logic App EAI Tutorial : https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx
+* Logic App EAI Tutorial : https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/
 * Author Logic App definitions : https://azure.microsoft.com/en-gb/documentation/articles/app-service-logic-author-definitions/
 * Logic App Workflow Definition Language : https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx
 * Logic App Workflow Actions and Triggers : https://msdn.microsoft.com/en-us/library/azure/dn948511.aspx
