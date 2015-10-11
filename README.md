@@ -14,11 +14,14 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 ## Swagger
 
 ### Swagger Configuration
-#### Set project properties XML documentation file ‘bin\XmlComments.xml’
-#### Update SwaggerConfig IncludeXmlComments to string.Format(@"{0}\bin\XmlComments.xml", System.AppDomain.CurrentDomain.BaseDirectory)
-### WebAPI via web app URL
-#### /swagger/ui/index – UI documentation
-#### /swagger/docs/v1 – Swagger DOC
-### API App
-#### Download swagger 
-#### API Host URL + /swagger/docs/v1 – Swagger DOC
+* Set project properties XML documentation file ‘bin\XmlComments.xml’
+* Update SwaggerConfig IncludeXmlComments to string.Format(@"{0}\bin\XmlComments.xml", System.AppDomain.CurrentDomain.BaseDirectory)
+
+### WebAPI Swagger via web app URL
+* /swagger/ui/index – UI documentation
+* /swagger/docs/v1 – Swagger DOC
+
+### API App Swagger 
+* Download swagger 
+* API Host URL + /swagger/docs/v1 – Swagger DOC
+
