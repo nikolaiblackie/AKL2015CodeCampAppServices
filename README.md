@@ -32,3 +32,14 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 ### Deploy automatically to slots or live - Web Deploy Package (based on MSBuild Arguments)
 * $(build.stagingDirectory)\**\AdtvDemo.WUS.WebAPI.Logistics.zip
 * $(build.stagingDirectory)\**\AdtvDemo.WUS.API.Products.zip
+
+# Resources
+
+## Logic App
+Where to find more information on Azure Logic Apps
+* Logic App EAI Tutorial : https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx
+* Author Logic App definitions : https://azure.microsoft.com/en-gb/documentation/articles/app-service-logic-author-definitions/
+* Logic App Workflow Definition Language : https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx
+* Logic App Workflow Actions and Triggers : https://msdn.microsoft.com/en-us/library/azure/dn948511.aspx
+* Logic App Management API : https://msdn.microsoft.com/en-US/library/azure/dn948513.aspx
+* Logic Apps Documentation : https://azure.microsoft.com/en-in/documentation/articles/app-service-logic-what-are-logic-apps/
