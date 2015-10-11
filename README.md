@@ -1,4 +1,4 @@
-# AKL2015CodeCampAppServices
+# Auckland 2015 Code Camp Azure AppServices
 
 Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Manage API’s in Microsoft Azure
 
