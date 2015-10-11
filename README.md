@@ -35,6 +35,14 @@ Code camp Auckland 2015 Samples - DEV1 – How to Design, Build, Deploy and Mana
 
 # Resources
 
+## Swagger
+
+* Swashbuckle : https://github.com/domaindrivendev/Swashbuckle
+* ASP NET WebAPI documentation using Swagger : http://bitoftech.net/2014/08/25/asp-net-web-api-documentation-using-swagger/
+* Swashbuckle Customization: https://azure.microsoft.com/en-us/documentation/articles/app-service-api-dotnet-swashbuckle-customize/
+* Swagger & ASP NET WebAPI: http://www.wmpratt.com/swagger-and-asp-net-web-api-part-1/
+
+
 ## Logic App
 Where to find more information on Azure Logic Apps
 * Logic App EAI Tutorial : https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/
